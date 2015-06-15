@@ -1,0 +1,32 @@
+h1, h2, h3{
+	color: red;
+	text-decoration: underline;
+
+}
+
+body{
+	background-color: aliceblue;
+	background-image: url("http://www.mrwallpaper.com/wallpapers/forest-trees-waterfall.jpg");
+	background-size: 100% 100%;
+}
+
+li{
+
+	list-style-type: square;
+
+}
+
+section {
+
+	background: rgba(128,128,128,.7);
+}
+
+a:visited{
+	color: pink;
+}
+a:hover{
+	color: white;
+}
+a:active{
+	color: orange;
+}
