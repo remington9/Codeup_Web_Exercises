@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>functions</title>
+</head>
+<body>
+	<script type="text/javascript">
+	(function(){
+		"use strict";
+
+	function sayHello(name){
+		return("Hello " + name + ", how is class going?");
+	}
+
+	function isOdd(input){
+		return((input % 2 === 0) ? input + " even": input + " odd");
+		}
+
+	var random = Math.floor((Math.random()*100)+1);
+	var myNameIs = 'Remington';
+
+	console.log(isOdd(random));
+	console.log(sayHello(myNameIs));
+	})();
+	</script>
+</body>
+</html>

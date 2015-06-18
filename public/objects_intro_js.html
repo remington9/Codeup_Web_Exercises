@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>objects intro</title>
+</head>
+<body>
+	<script type="text/javascript">
+	"use strict";
+	(function(){
+		
+		var person = Object();
+		person.firstName = 'Remington';
+		person.lastName = 'Williams';
+		
+		person.sayHello = function(){
+			alert('Hello '+this.firstName+' '+this.lastName+' :)')
+		}
+		
+		person.sayHello();
+	})();
+	</script>
+
+</body>
+</html>

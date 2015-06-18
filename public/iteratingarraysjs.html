@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>arrays</title>
+</head>
+<body>
+	<script type="text/javascript">
+	'use strict';
+	(function(){
+		var names=['Remington', 'Niki', 'Aria', 'Archer'];
+
+		for (var i = 0; i < names.length; i++) {
+		    console.log('the name at index ' + i + ' is ' + names[i]);
+			}
+
+		names.forEach(function (name, index, array) {
+
+   		 console.log('The name at index ' + index + ' is: ' + name);
+		});
+	})();
+	</script>
+
+</body>
+</html>
