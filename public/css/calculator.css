@@ -1,0 +1,72 @@
+/*calculator css*/
+* {
+  box-sizing: border-box;
+}
+/*sets main body size and color*/
+html{
+	background-color: #ccc;
+}
+main{
+	width: 293px;
+	height: 320px;
+	margin: 100px auto;
+	padding: 20px 0px 50px 20px;
+	background: #5bc0de;
+	border-radius: 9px;
+}
+.symbol{
+	background: white !important;
+}
+/*styles all of the buttons*/
+button{
+	float: left;
+	position: relative;
+	top: 0; 
+	width: 60px;
+	height: 55px;
+	background: #777;
+	border-radius: 3px; 
+	margin: 0 5px 5px 0;
+	color: black;
+	line-height: 36px;
+	text-align: center;
+	font-size: 16px;
+	user-select: none;
+}
+
+.clearfix{
+	clear: both;
+}
+/*styles to two operand boxes*/
+.operand{
+	height: 40px;
+	width: 100px;
+	float: left;
+	padding:0 10px;
+	margin-bottom: 5px;
+	margin-right: 2px;
+	margin-left: 2px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+/*styles the operator box*/
+.operator{
+	height: 40px;
+	width: 50px;
+	float: left;
+	padding: 0 10px;
+	margin-bottom: 5px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+/*gives all buttons a background color*/
+.number{
+	background-color: #777;
+}
+/*styles the clear button seperate*/
+#C{
+	background-color: red;
+}
+
