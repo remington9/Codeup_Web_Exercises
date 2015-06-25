@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      #map-canvas { height: 500px; width: 500px; margin: 0; padding: 0; display:inline-block;}
+      #map-canvas2 { height: 500px; width: 500px; margin: 0 0 0 10px; padding: 0;display:inline-block}
+      #map-canvas3 { height: 500px; width: 500px; margin: 0 0 0 10px; padding: 0;display:inline-block}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-1UGcRfaxk0JvorYjpR0E43SYoakr3pg">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        var address = "14250 San Pedro Ave San Antonio, TX 78232";
+        // Init geocoder object
+        var geocoder = new google.maps.Geocoder();
+
+        // Geocode our address
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          console.log(results);
+          // Check for a successful result
+          if (status == google.maps.GeocoderStatus.OK) {
+            var mapOptions = {
+              zoom: 5,
+              center: results[0].geometry.location,
+              zoomControlOptions: {
+                style: "SMALL"
+              }
+            }
+            // Render the map
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            var marker = new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map
+            });
+            var infowindow = new google.maps.InfoWindow({
+        content: 'Alamo Cafe'
+        });
+        infowindow.open(map,marker);
+          } else {
+            // Show an error message with the status if our request fails
+            alert("Geocoding was not successful - STATUS: " + status);
+          }
+        });
+        // Geocode our address
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          console.log(results);
+          // Check for a successful result
+          if (status == google.maps.GeocoderStatus.OK) {
+            var mapOptions = {
+              zoom: 15,
+              center: results[0].geometry.location,
+              zoomControlOptions: {
+                style: "SMALL"
+              }
+            }
+            // Render the map
+            var map2 = new google.maps.Map(document.getElementById("map-canvas2"), mapOptions);
+            var marker2 = new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map2
+            });
+            var infowindow = new google.maps.InfoWindow({
+            content: 'Alamo Cafe'
+            });
+            infowindow.open(map2,marker2);
+          } else {
+            // Show an error message with the status if our request fails
+            alert("Geocoding was not successful - STATUS: " + status);
+          }
+      });
+
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          console.log(results);
+          // Check for a successful result
+          if (status == google.maps.GeocoderStatus.OK) {
+            var mapOptions = {
+              zoom: 20,
+              center: results[0].geometry.location,
+              zoomControlOptions: {
+                style: "SMALL"
+              }
+            }
+            // Render the map
+            var map3 = new google.maps.Map(document.getElementById("map-canvas3"), mapOptions);
+            var marker3 = new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map3
+
+            });
+            var infowindow = new google.maps.InfoWindow({
+            content: 'Alamo Cafe'
+            });
+            infowindow.open(map3,marker3);
+          } else {
+            // Show an error message with the status if our request fails
+            alert("Geocoding was not successful - STATUS: " + status);
+          }
+      });
+        
+    })();
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+    <div id="map-canvas2"></div>
+    <div id="map-canvas3"></div>
+  </body>
+</html>

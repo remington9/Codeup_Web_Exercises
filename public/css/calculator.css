@@ -4,7 +4,11 @@
 }
 /*sets main body size and color*/
 html{
-	background-color: #ccc;
+	background-color: #CCC;	
+	background-image: url(/img/math.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    width: %;
 }
 main{
 	width: 293px;
