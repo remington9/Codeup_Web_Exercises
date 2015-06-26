@@ -29,17 +29,25 @@
 
 
 
-
-
-
-
-
-
-
 	<script src="/js/jquery-1.11.3.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-            $('.codeup').css('border', 'red 1px solid');
+            $('li').css('font-size', '20px');
+
+            $('h1').click(function() {
+            	$(this).css('background-color', '#FF0');
+	        });
+	        $('p').click(function() {
+            	$(this).css('font-size', '18px');
+	        });
+	        $('li').hover(function(){
+            	$(this).css('color', 'red');
+	        },
+            	function(){
+            		$(this).css('color', 'black');
+	        });
+            var contents = $('h1');
+            alert(contents.html());
         });
 		
 	</script>
