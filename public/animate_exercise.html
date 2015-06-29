@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animate</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0;
+            height:3700px;
+        }
+        #btn-all{
+            height:300px;
+            width: 600px;
+            background-color: red;
+            color: white;
+            font-size: 90px;
+        }
+
+        #pokeball {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <img src="/img/jswtb.jpg" style= "width: 1500px; height: 1500px;">
+    <p>
+        <button id="btn-all">choose Olly</button>
+    </p>
+
+    <img id="pokeball" src="/img/pokeball.png" style= "width: 500px; height: 500px;">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+        (function(){
+
+            'use strict';
+
+            var oldSrc = '/img/pokeball.png';
+            var newSrc = '/img/olly1.gif';
+            var newSrc2 = '/img/olly.jpeg';
+
+            $('document').ready(function() {
+
+                $('#btn-all').click(function() {
+                    $('#pokeball')
+                    .animate({
+                        left: "+=600",
+                        top: "+=400",
+                        }, 1700)
+                    .animate({width:"+=800px"})
+                    .animate({height:"+=400px"})
+
+                        setTimeout(function(){
+                            $('img[src="' + oldSrc + '"]').attr('src', newSrc);
+                        }, 1800);
+
+                        setTimeout(function(){
+                            $('img[src="' + newSrc + '"]').attr('src', newSrc2);
+                        }, 4700);
+                });                 
+            });
+        })();
+    
+    </script>
+</body>
+</html>
