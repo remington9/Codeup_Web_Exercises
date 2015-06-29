@@ -72,15 +72,47 @@
 		</ul>
 	</div>
 	<a href="#" id="viewFaqs">Click to toggle the FAQs text.</a>
+
+	<h3>Carlsbad Caverns</h3>
+	<ul class="national-parks">
+		<li>Established: May 14, 1930</li>
+		<li>Size: 46,766 acres</li>
+		<li>Location: New Mexico</li>
+		<li>Stalactites hang like daggers in the Big Room at Carlsbad Caverns National Park in New Mexico. The huge space covers more than eight acres.</li>
+	</ul>
+
+	<h3>Denali</h3>
+	<ul class="national-parks">
+		<li>Established: February 26, 1917</li>
+		<li>Size: 6,075,029 acres</li>
+		<li>Location: Alaska</li>
+		<li>Mount McKinley is North America’s highest peak.</li>
+	</ul>
+
+	<h3>Everglades</h3>
+	<ul class="national-parks">
+		<li>Established: December 6, 1947</li>
+		<li>Size: 1,542,526 acres</li>
+		<li>Location: Florida</li>
+		<li>Egrets are part of the unique mix of wildlife that lives among the saw grass and mangroves of South Florida's Everglades National Park.</li>
+	</ul>
+
 	<script src="/js/jquery-1.11.3.js"></script>
 
 	<script>
         "use strict";
+        $('.national-parks').children().first().css('font-weight', 'bold');
         $('head').html('<style type="text/css">.invisible{ display: none;}</style>');
         $(document).ready(function() {
             $('#viewFaqs').click(function(event) {
                 event.preventDefault();
-                $('.potato').toggleClass('invisible');
+                $('.potato').toggle();
+            });
+            $('li').click(function(event) {
+                $(this).parent().toggleClass('invisible');
+            });
+            $('h3').click(function(event) {
+                $(this).next().removeClass('invisible');
             });
         });
     </script>
