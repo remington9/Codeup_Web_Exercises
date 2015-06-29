@@ -106,13 +106,11 @@
         $(document).ready(function() {
             $('#viewFaqs').click(function(event) {
                 event.preventDefault();
-                $('.potato').toggle();
+                $('.potato').fadeToggle(800);
             });
-            $('li').click(function(event) {
-                $(this).parent().toggleClass('invisible');
-            });
+            
             $('h3').click(function(event) {
-                $(this).next().removeClass('invisible');
+                $(this).next().slideToggle(200);
             });
         });
     </script>
