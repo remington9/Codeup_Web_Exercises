@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <style type="text/css">
+   
+    </style>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+<div class="col-md-6">
+<table id="products" class="table table-striped table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"  class="list-order"></tbody>
+</div>
+</table>
+<button type="button" class="btn btn-primary btn-lg btn-block" id="refresh">Refresh</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+    (function() {
+        // TODO: Create an ajax GET request for /data/inventory.json
+        var inventory = $.get('/data/inventory.json');
+
+        inventory.done(function(data) {
+            for(var i = 0; i < data.length; i++){
+                var $tr = $('<tr>');
+                $tr.append('<td>'+ data[i].title + '</td>');
+                $tr.append('<td>' + data[i].quantity + '</td>');
+                $tr.append($('<td/>').html(data[i].price));
+                $tr.append($('<td/>').html(data[i].categories));
+                $('.list-order').append($tr);
+            }
+        });
+
+        $('#refresh').click(function(){
+            var inventory2 = $.get('/data/inventory.json');
+            inventory2.done(function(data) {
+                $('.list-order').html('');
+                for(var i = 0; i < data.length; i++){
+                    var $tr = $('<tr>');
+                    $tr.append('<td>'+ data[i].title + '</td>');
+                    $tr.append('<td>' + data[i].quantity + '</td>');
+                    $tr.append($('<td/>').html(data[i].price));
+                    $tr.append($('<td/>').html(data[i].categories));
+                    $('.list-order').append($tr);
+                }
+            });
+        });
+
+    })();
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

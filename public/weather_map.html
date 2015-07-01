@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<!-- google api -->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-1UGcRfaxk0JvorYjpR0E43SYoakr3pg"></script>
+		<link rel="stylesheet" type="text/css" href="/css/weather_map.css">
+		<title>Weather API Example</title>
+	</head>
+	<body>
+		<main class="wrapper">
+			<header>
+				<h1>Weather Example</h1>
+			</header>
+			<!-- location header div -->
+			<div class="locationheader" style="text-align: center;"></div>
+			<!-- frames where the weather is layed out -->
+			<div class="weatherframes" style="margin-left:2px;"></div>
+			<div class="weatherframes2"></div>
+			<div class="weatherframes3"></div>
+			<div id="map-canvas"></div>
+
+		</main>
+		<!-- container to contain all external js file links -->
+		<container>
+			<!-- jquery CDN -->
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+			<!-- Latest compiled and minified JavaScript for Bootstrap-->
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<!-- my map js file -->
+			<script src="/js/weather_map.js"></script>
+
+		</container>
+	</body>
+</html>

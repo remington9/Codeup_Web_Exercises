@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="favicon.ico"> -->
+
+    <title>Remington</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/justified-nav.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/blog.css">
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Remington's Blog</a>
+            </div>
+            <center>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a>
+                        </li>
+                        <li><a href="#">Contact</a>
+                        </li>
+                        <li><a href="#container">Post</a>
+                        </li>
+                        <li><a href="#login-overlay" role="button" data-toggle="modal">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </center>
+        </div>
+    </div>
+  
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Potato stuff!</h1>
+        <p class="lead">Shepody spunta pink eye langlade kennebec rooster. Ratte potato atlantic apline ranger russet shepody. Adirondack red british queens almond cara spud cielo, langlade red lasoda tots avalanche irish cobbler blazer russet. Nicola carola belle de fontenay bannock russet pink eye avalanche. Chelina bamberg amandine fianna marfona sieglinde adirondack red. Annabelle pike red norland fingerling king edward carola.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started Reading</a></p>
+      </div>
+
+      <main id="container">
+
+      <div class="posts" id="blogposts">
+        
+      </div>
+      <!-- modal -->
+      <div id="login-overlay" class="modal fade" style="display: none;" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login to site.com</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="well">
+                            <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="username" class="control-label">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                    <span class="help-block"></span>
+                                </div>
+                                <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" id="remember"> Remember login
+                                    </label>
+                                    <p class="help-block">(if this is a private computer)</p>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block">Login</button>
+                                <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                        <ul class="list-unstyled" style="line-height: 2">
+                            <li><span class="fa fa-check text-success"></span> See all your orders</li>
+                            <li><span class="fa fa-check text-success"></span> Fast re-order</li>
+                            <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+                            <li><span class="fa fa-check text-success"></span> Fast checkout</li>
+                            <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
+                            <li><a href="/read-more/"><u>Read more</u></a></li>
+                        </ul>
+                        <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- post form -->
+      <div id="postform">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+          <h3 class="panle-tittle">Write a new post</h3>
+          </div>
+          <div class="panel-body">
+          <input type="text" class="form-control" placeholder="Title input">
+          <textarea class="form-control" rows="7" placeholder="Get Creative here"></textarea>
+          <input type="text" class="form-control" placeholder="Catagory input">
+          </div>
+          <button class="btn btn-primary btn-lg btn-block">Submit new post</button>
+        </div>
+      </div>
+      <footer class="footer">
+          © Potato bloggers of Ireland 2015
+      </footer>
+
+    </main>
+
+    <script>
+      (function() {
+          var posts = $.get('/data/blog.json');
+          console.log(posts);
+          posts.done(function(data) {
+              for(var i = 0; i < data.length; i++){
+                  var $div = $('<div>');
+                  $div.append('<h2>'+ data[i].title + '</h2>');
+                  $div.append('<p>' + data[i].content + '</p>');
+                  $div.append('<p>' + data[i].categories.join(', ') + '</p>');
+                  $div.append($('<p/>').html(data[i].date));
+                  $('.posts').append($div);
+              }
+          }); 
+      })();
+    </script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
