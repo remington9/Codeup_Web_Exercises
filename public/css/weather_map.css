@@ -5,6 +5,11 @@
 	background-color: #777;
 	padding:5px; 
 }
+#formId{
+	height:50px;
+	background-color: #777;
+	padding:10px; 
+}
 h1{
 	text-align: center;
 }
@@ -23,6 +28,14 @@ h1{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 4px;
-	padding: 2px;
-
+	padding: 4px;
 }
+.panle-title{
+	text-align: center;
+}
+.centeredText{
+	text-align: center;
+}
+/*body{
+	background: url(/img/clear_sky.jpg) no-repeat center center fixed;
+}*/
