@@ -1,10 +1,6 @@
 
-
-
-
 $(function(){
  
-
  navigator.geolocation.getCurrentPosition(function(position){
     		//MAKES AJEX REQUEST FOR LAT AND LONG
 			var ajaxReq = $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&cnt=3", {
@@ -47,7 +43,6 @@ function displayMap(lat,lng,cityName){
 		var lng = latLng.lng();
 	    weatherDisplay(lat,lng);
 	});
-
 }
 // =================================================================
 	function weatherRender(data) {
@@ -55,7 +50,7 @@ function displayMap(lat,lng,cityName){
 		
 		$('.locationheader').html('<h2>'+ data.city.name+' '+data.city.country +'</h2>');
             // weather frame 1
-            html += '<div><h3>'+ data.list[0].temp.max + '°/' +data.list[0].temp.min+'°'+ '</h3>'+'</div>';
+            html += '<div><h3>'+ data.list[0].temp.max + '°F/' +data.list[0].temp.min+'°F'+ '</h3>'+'</div>';
             html += '<div><p>'+'<img src="http://openweathermap.org/img/w/'+ data.list[0].weather[0].icon + '.png">'+'</p>'+'</div>';
 	        html += '<div><p>'+data.list[0].weather[0].main+': '+ data.list[0].weather[0].description + '</p>'+'</div>';
 	        html += '<div><p>'+'Humidity: '+ data.list[0].humidity + '</p>'+'</div>';
@@ -64,7 +59,7 @@ function displayMap(lat,lng,cityName){
 	        $('.weatherframes').html(html);
 
 	        // weather frame 2
-            html = '<div>'+'<h3>'+ data.list[1].temp.max + '°/' +data.list[1].temp.min+'° '+'</h3>'+'</div>';
+            html = '<div>'+'<h3>'+ data.list[1].temp.max + '°F/' +data.list[1].temp.min+'°F '+'</h3>'+'</div>';
             html += '<div>'+'<p>'+'<img src="http://openweathermap.org/img/w/'+ data.list[1].weather[0].icon + '.png">'+'</p>'+'</div>';
 	        html += '<div>'+'<p>'+data.list[1].weather[0].main+': '+ data.list[1].weather[0].description + '</p>'+'</div>';
 	        html += '<div>'+'<p>'+'Humidity: '+ data.list[1].humidity + '</p>'+'</div>';
@@ -72,15 +67,15 @@ function displayMap(lat,lng,cityName){
 	        html += '<div>'+'<p>'+'Pressure: '+ data.list[1].pressure + '</p>'+'</div>';
 	        $('.weatherframes2').html(html);
 
-	        // weather frame 3
-            html = '<div>'+'<h3>'+ data.list[2].temp.max + '°/' +data.list[2].temp.min+'°'+ '</h3>'+'</div>';
+	        // weather frame 3            
+            html = '<div>'+'<h3>'+ data.list[2].temp.max + '°F/' +data.list[2].temp.min+'°F'+ '</h3>'+'</div>';
             html += '<div>'+'<p>'+'<img src="http://openweathermap.org/img/w/'+ data.list[2].weather[0].icon + '.png">'+'</p>'+'</div>';
 	        html += '<div>'+'<p>'+data.list[2].weather[0].main+': '+ data.list[2].weather[0].description + '</p>'+'</div>';
 	        html += '<div>'+'<p>'+'Humidity: '+ data.list[2].humidity + '</p>'+'</div>';
 	        html += '<div>'+'<p>'+'Wind: '+ data.list[2].speed +' mph' +'</p>'+'</div>';
 	        html += '<div>'+'<p>'+'Pressure: '+ data.list[2].pressure + '</p>'+'</div>';
 	        $('.weatherframes3').html(html);
-
+	        // changes background img based on todays weather
 			if(data.list[0].weather[0].main == "Clouds"){
 				$("#body").css("background", "url(/img/Sky_cloudy.jpg) no-repeat center center fixed");
 			}else if(data.list[0].weather[0].main == "Clear"){
@@ -90,7 +85,6 @@ function displayMap(lat,lng,cityName){
 			}else{
 				$("#body").css("background", "color:blue; url(blank)");
 			}
-			
 	};
 // ======================================
 function weatherDisplay(lat,lng){
@@ -113,14 +107,7 @@ function weatherDisplay(lat,lng){
 					});
 };
 // ===================================
-function backgroundImg(data){
-	console.log(data.list[0].weather[0].main);
-	console.log(data.list[1].weather[0].main);
-	console.log(data.list[2].weather[0].main);
-};
 
-
-// ===========
 //FORM INPUT ON CLICK FUNCTION
 
     $('#formId').on('submit',function (e) {

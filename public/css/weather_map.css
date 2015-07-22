@@ -4,6 +4,7 @@
 	width: 80%;
 	background-color: #777;
 	padding:5px; 
+	opacity: 0.8;
 }
 #formId{
 	height:50px;
@@ -36,6 +37,3 @@ h1{
 .centeredText{
 	text-align: center;
 }
-/*body{
-	background: url(/img/clear_sky.jpg) no-repeat center center fixed;
-}*/
