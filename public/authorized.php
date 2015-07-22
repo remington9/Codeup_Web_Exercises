@@ -1,11 +1,13 @@
 <?php
-$username = isset($_POST['username']) ? strtolower ($_POST['username']) == 'remington' : '';
-$password = isset($_POST['password']) ? $_POST['password'] == '1992': '';
+session_start();
+// get the current session id
+$sessionId = session_id();
 
-if($username && $password ){
-	$authorized = 'you are authorized';
+if(!empty($_SESSION['userinfo'])){
+	$name = $_SESSION['userinfo'];
 }else{
-	$authorized = 'you are not authorized';
+	header("Location: login.php");
+	exit();
 }
 
 ?>
@@ -16,8 +18,8 @@ if($username && $password ){
 </head>
 <body>
     
-    <h2>Authorized to enter?</h2>
-    <p><?php echo $authorized; ?></p>
-    <a href="login.php">Back</a>
+    <h2>You are authorized to enter</h2>
+    <p>Welcome! <?= $name?></p>
+    <a href="logout.php">Logout</a>
 </body>
 </html>
