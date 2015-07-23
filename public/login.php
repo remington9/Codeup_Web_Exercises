@@ -1,9 +1,10 @@
 <?php
 
 session_start();
+require 'functions.php';
 
-$username = isset($_POST['username']) && strtolower($_POST['username']) == 'remington';
-$password = isset($_POST['password']) && $_POST['password'] == '1992';
+$username = inputHas('username') && escape($_REQUEST['username'] == 'remington');
+$password = inputHas('password') && escape($_REQUEST['password'] == '1992');
 $userinfo = false;
 if (isset($_POST['username']) && isset($_POST['password'])) {
 	if($username && $password){
@@ -14,7 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		echo 'you are not authorized to log in here';
 	}
 }
-
+require 'functions.php';
 ?>
 <!DOCTYPE html>
 <html>

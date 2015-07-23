@@ -1,5 +1,6 @@
 <?php
 function pageController(){
+	$data = array();
 	$gameState = "In Play";
 	if(isset($_GET['count'])){
 		$currentPossition =$_GET['count'];
@@ -18,6 +19,7 @@ function pageController(){
 	return $data; 
 }
 extract(pageController());
+
 ?>
 <html>
 <head>
@@ -31,12 +33,19 @@ extract(pageController());
 			width: 60px;
 		}
 	</style>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 </head>
 <body>
-	<h1>Pong!</h1>
-	<button><a href="ping.php?name=hit&count=<?=$currentPossition;?>">hit</a></button>
-	<button><a href="?name=miss&count=<?=$currentPossition;?>">miss</a></button>
-	<h2><?= $currentPossition ?></h2>
-	<h2><?= $currentState ?></h2>
+	<?php require 'navbar.php';?>
+	<?php require 'header.php';?>
+	<div class="page-header" style="margin-top: 90px;">
+		<h1>Pong!</h1>
+		<button><a href="ping.php?name=hit&count=<?=$currentPossition;?>">hit</a></button>
+		<button><a href="?name=miss&count=<?=$currentPossition;?>">miss</a></button>
+		<h2><?= $currentPossition ?></h2>
+		<h2><?= $currentState ?></h2>
+	</div>
+	<?php require 'footer.php';?>
 </body>
 </html>

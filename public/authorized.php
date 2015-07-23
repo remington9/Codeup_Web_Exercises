@@ -1,14 +1,16 @@
 <?php
 session_start();
+require 'functions.php';
 // get the current session id
 $sessionId = session_id();
 
 if(!empty($_SESSION['userinfo'])){
-	$name = $_SESSION['userinfo'];
+	$name = escape($_SESSION['userinfo']);
 }else{
 	header("Location: login.php");
 	exit();
 }
+require 'functions.php';
 
 ?>
 <!DOCTYPE html>
