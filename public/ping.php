@@ -1,15 +1,15 @@
 <?php
-+require 'functions.php';
+require_once '../input.php';
 function pageController(){
 	$data = array();
 	$gameState = "In Play";
-	if(inputHas('count')){
+	if(Input::has('count')){
 		$currentPossition =$_GET['count'];
 		if(!empty($_GET)){
-			if(inputGet('name') == 'hit'){
+			if(Input::get('name') == 'hit'){
 				$currentPossition++;
 				$gameState = "In Play";
-			}elseif(inputGet('name') == 'miss') {
+			}elseif(Input::get('name') == 'miss') {
 				$currentPossition = 0;
 				$gameState = "Game Over";
 			}

@@ -1,34 +1,49 @@
 <?php
 
+require_once '../Auth.php';
+require_once '../Input.php';
+require_once 'functions.php';
 session_start();
-require 'functions.php';
 
-$username = inputHas('username') && escape($_REQUEST['username'] == 'remington');
-$password = inputHas('password') && escape($_REQUEST['password'] == '1992');
+$username = Input::get('username') && escape($_REQUEST['username'] == 'guest');
+$password = Input::get('password') && escape($_REQUEST['password'] == 'password');
 $userinfo = false;
-if (isset($_POST['username']) && isset($_POST['password'])) {
-	if($username && $password){
-        $_SESSION['userinfo'] = $_POST['username'];
-		header("Location: authorized.php");
-		exit();
-	}else{
-		echo 'you are not authorized to log in here';
-	}
+$header = "Welcome please login!";
+if ($_POST){
+        if (Auth::attempt(Input::get("username"), Input::get('password'))){
+            echo "Test";
+            header("Location: authorized.php");
+            exit();
+        }else{
+            $header = "Please enter valid credentials.";
+        }
 }
-require 'functions.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>POST Example</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+        .box{
+            width:15%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
 </head>
 <body>
-    <form method="POST">
-        <label>Userame:</label>
-        <input type="text" name="username"><br>
-        <label>Password:</label>
-        <input type="password" name="password"><br>
-        <input type="submit">
-    </form>
+    <h1><?= $header ?></h1>
+    <div class="box">
+        <form method="POST">
+            <label>Userame:</label>
+            <input type="text" name="username"><br><br>
+            <label>Password:</label>
+            <input type="password" name="password"><br><br>
+            <input type="submit" style="float: right;">
+        </form>
+    </div>
 </body>
 </html>

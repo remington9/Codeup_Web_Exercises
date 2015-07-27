@@ -1,13 +1,14 @@
 <?php
+require_once '../input.php';
 function pageController(){
 	$data = array();
 	$gameState = "In Play";
-	if(isset($_GET['count'])){
+	if(Input::has('count')){
 		$currentPossition =$_GET['count'];
-		if($_GET['name'] == 'hit'){
+		if(Input::get('name') == 'hit'){
 			$currentPossition += 1;
 			$gameState = "In Play";
-		}elseif($_GET['name'] == 'miss') {
+		}elseif(Input::get('name') == 'miss') {
 			$currentPossition = 0;
 			$gameState = "Game Over";
 		}
