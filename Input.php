@@ -33,7 +33,49 @@ class Input
         }
     }
 
-    public static function escape(){
+    public static function getString($key)
+    {
+        $value = trim(static::get($key));
+        // $isString = settype($value, 'string');
+        if(!isset($value)){
+             throw new Exception('Input must not be a null!');
+        }
+        // Check if value is a string
+        if (!is_string($_REQUEST[$key])) {
+            throw new Exception('Input must be a string!');
+        }
+        return $value;
+    }    
+
+    public static function getNumber($key)
+    {
+        $value = str_replace(',', '', static::get($key));
+
+        if(!isset($value)){
+            throw new Exception('Input must not be a null!');
+        }
+        // Check if value is a string
+        if (!is_numeric($_REQUEST[$key])) {
+            throw new Exception('Input must be a number!');
+        }
+        return $value;
+    }
+
+    public static function getDate($key){
+
+        $value = trim(static::get($key));
+        $format = 'Y-m-d';
+
+        $dateObject = DateTime::createFromFormat($format, $value);
+        if($dateObject){
+            return $dateObject->date;
+        }else{
+            throw new Exception('Input must be a valid date!');
+        }
+
+    }
+
+    public static function escape($input){
         return htmlspecialchars(strip_tags($input));
     }
 

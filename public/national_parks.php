@@ -33,11 +33,11 @@ if(!empty($_POST)){
 	){
 		$newPost = $dbc->prepare("INSERT INTO national_parks(name, location, date_established, area_in_acres, description) 
 		VALUES(:name,:location,:date_established,:area_in_acres,:description)");
-	    $newPost ->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
-	    $newPost ->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
-	    $newPost ->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
-	    $newPost ->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_STR);
-	    $newPost ->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+	    $newPost->bindValue(':name', Input::getString('name'), PDO::PARAM_STR);
+	    $newPost->bindValue(':location', Input::getString('location'), PDO::PARAM_STR);
+	    $newPost->bindValue(':date_established', Input::getDate('date_established'), PDO::PARAM_STR);
+	    $newPost->bindValue(':area_in_acres', Input::getNumber('area_in_acres'), PDO::PARAM_STR);
+	    $newPost->bindValue(':description', Input::getString('description'), PDO::PARAM_STR);
 	    $newPost->execute();
 	}else{
 		$errorMessage = 'To add a park please input all fields!';
@@ -112,13 +112,13 @@ if($_GET['page'] > $maxpage || !is_numeric($_GET['page']) || $_GET['page'] < 1){
 		<div id="form">
 			<form method="POST">
 				<div class="input-group-lg">
-				  <input type="text" class="form-control" placeholder="Park Name" name="name" aria-describedby="basic-addon1">
+				  <input type="text" class="form-control" placeholder="Park Name" name="name" id="name" aria-describedby="basic-addon1">
 				</div>
 				<div class="input-group-lg">
 				  <input type="text" class="form-control" placeholder="State" name="location" aria-describedby="basic-addon1">
 				</div>			
 				<div class="input-group-lg">
-				  <input type="text" class="form-control datepicker" placeholder="YYYY-MM-DD" name="date_established" aria-describedby="basic-addon1">
+				  <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="date_established" aria-describedby="basic-addon1">
 				</div>			
 				<div class="input-group-lg">
 				  <input type="text" class="form-control" placeholder="Area in Acres" name="area_in_acres" aria-describedby="basic-addon1">
@@ -140,9 +140,7 @@ if($_GET['page'] > $maxpage || !is_numeric($_GET['page']) || $_GET['page'] < 1){
 		</ul>
 	</div>
 
-	<script type="text/javascript">
-	$('.datepicker').pickadate();
-	</script>
+
 	<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
